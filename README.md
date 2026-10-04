@@ -1,6 +1,9 @@
 # Hong Kong rainfall
 
-![Hong Kong rainfall](out/rainfall.png)
+![Hong Kong rainfall calendar](out/rainfall-calendar.png)
+
+The original daily bar chart is also kept as an initial version:
+![Original Hong Kong rainfall bar chart](out/plot.png)
 
 ## The natural phenomenon
 
@@ -27,12 +30,20 @@ marker instead of silently changing it to zero. It also reports `Trace`
 entries separately: the Observatory defines these as rainfall below 0.05 mm,
 so the chart does not pretend that they have an exact numeric value.
 
-## What the picture shows
+## What the pictures show
 
-The chart shows the daily rainfall recorded in 2025. Most bars are small or
-zero, while a few taller blue bars show days with much heavier rain. It hides
-hour-by-hour changes, differences between locations across Hong Kong, and the
-exact original text and completeness code for every row.
+The new main picture, `out/rainfall-calendar.png`, shows every day of 2025 in
+a calendar layout. Each date has its own square: pale blue means little rain
+and darker blue means more daily rainfall. The calendar includes month titles,
+weekday labels, a millimetres (mm) colour legend, and red stars marking the
+three wettest days. The earlier bar chart, `out/plot.png`, is preserved as an
+initial version so the two visual designs can be compared.
+
+Both pictures hide changes within a day, such as hourly rainfall, and they do
+not show differences between weather stations in different parts of Hong
+Kong. The calendar also gives less visual space to exact values than the
+original bars. Days marked `Trace` by the Observatory are not given a made-up
+number in the chart.
 
 ## Run it
 
