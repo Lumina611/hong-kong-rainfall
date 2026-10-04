@@ -1,34 +1,42 @@
-# The phenomenon
+# Hong Kong rainfall
 
-<!-- This is the SD5913 assignment 2 template. Everything in this file is yours to
-replace, and the check counts words: comments like this one are not words, so
-delete each one as you write. Start with the heading: name the phenomenon.
+![Hong Kong rainfall](out/rainfall.png)
 
-Then, in this order, at least 150 words in total.
+## The natural phenomenon
 
-New to folders, paths, or the files here whose names start with a dot? Read
-https://github.com/sd5913/pfad/blob/2026/reference/files.md first. Ten minutes. -->
+This project studies rainfall, the amount of water that falls from clouds to
+the ground. Rainfall changes from day to day because of monsoon winds, tropical
+cyclones, thunderstorms, and other weather systems. I chose Hong Kong rainfall
+because Hong Kong has a clear wet season, occasional very heavy rain, and a
+long official record. Understanding these changes is useful for thinking about
+flooding, water resources, transport, and daily life.
 
-![what the picture is](out/plot.png)
+## The data
 
-## The phenomenon
-
-<!-- What goes up and down, and why you looked at it. -->
-
-## The source
-
-<!-- A link to the page or endpoint the file came from, and one line on what is in
-the file: how many rows, what a row means, what the units are. -->
+The data comes from the [Hong Kong Observatory daily total rainfall
+dataset](https://data.gov.hk/en-data/dataset/hk-hko-rss-daily-total-rainfall).
+The [direct CSV file](https://data.weather.gov.hk/weatherAPI/cis/csvfile/HKO/ALL/daily_HKO_RF_ALL.csv)
+is downloaded by `fetch.py` and saved without changing the server response.
+The local file has **49,492 data rows**. Each data row
+represents one calendar day recorded at the Hong Kong Observatory station. Its
+columns give the year, month, day, rainfall value, and a completeness code.
+Rainfall is measured in millimetres (mm). The file also contains headings and
+short notes from the Observatory; the plotting program does not treat those
+notes as observations. The code reports the official `***` missing-value
+marker instead of silently changing it to zero. It also reports `Trace`
+entries separately: the Observatory defines these as rainfall below 0.05 mm,
+so the chart does not pretend that they have an exact numeric value.
 
 ## What the picture shows
 
-<!-- Two or three sentences. Including what it hides: every transformation throws
-something away, and naming what yours threw away is the easiest way to sound like
-you know what you did. -->
+The chart shows the daily rainfall recorded in 2025. Most bars are small or
+zero, while a few taller blue bars show days with much heavier rain. It hides
+hour-by-hour changes, differences between locations across Hong Kong, and the
+exact original text and completeness code for every row.
 
 ## Run it
 
-```
+```bash
 uv run fetch.py
 uv run plot.py
 ```
