@@ -36,7 +36,7 @@ def rows(path: Path) -> list[list[str]]:
 
 def read_year(path: Path, year_to_plot: int) -> tuple[list[date], list[float]]:
     """Read numeric daily rainfall values for one year from the local CSV."""
-    table = rows(DATA)
+    table = rows(path)
     dates: list[date] = []
     values: list[float] = []
     skipped_missing = 0
@@ -63,7 +63,7 @@ def read_year(path: Path, year_to_plot: int) -> tuple[list[date], list[float]]:
     if not values:
         raise ValueError(f"No usable rainfall data found for {year_to_plot}.")
 
-    print(f"{DATA.name}: {len(table)} data rows")
+    print(f"{path.name}: {len(table)} data rows")
     print(
         f"{len(values)} usable values plotted for {year_to_plot}; "
         f"{skipped_missing} missing values, {skipped_trace} trace values, "
